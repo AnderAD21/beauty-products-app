@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 30 33% 99%;
+    --foreground: 340 10% 15%;
+    --brand-rose: 13 40% 68%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 340 10% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 340 10% 15%;
+
+    /* Rosa empolvado (blush) */
+    --primary: 350 42% 56%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 340 25% 96%;
+    --secondary-foreground: 340 15% 25%;
+
+    --muted: 340 20% 96%;
+    --muted-foreground: 340 7% 42%;
+
+    --accent: 345 50% 95%;
+    --accent-foreground: 345 45% 35%;
+
+    --success: 160 60% 40%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 38 90% 15%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 340 18% 91%;
+    --input: 340 18% 89%;
+    --ring: 350 42% 56%;
+
+    --radius: 0.75rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: 'cv11', 'ss01';
+  }
+
+  /* Foco visible consistente para accesibilidad (teclado). */
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+
+  ::selection {
+    @apply bg-primary/15 text-foreground;
+  }
+
+  /* Tipografía de encabezados un poco más ajustada. */
+  h1, h2, h3 {
+    @apply tracking-tight;
+  }
+
+  /* Scrollbar sutil */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-border;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/40;
+  }
+}
+
+@layer components {
+  /* Tarjeta con realce sutil al pasar el cursor (para ítems interactivos). */
+  .card-interactive {
+    @apply transition-shadow hover:shadow-md;
+  }
+}
