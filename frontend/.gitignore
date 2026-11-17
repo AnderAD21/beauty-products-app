@@ -4,6 +4,11 @@ dist-ssr
 *.local
 .vite
 
+# Environment variables
+.env
+.env.*
+!.env.example
+
 # Editor
 .vscode/*
 !.vscode/extensions.json
